@@ -110,12 +110,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WorldStreetsRenderer\WorldStreetsRenderer.csproj">
-      <Project>{e72cd836-485d-40f7-8e96-3c4c163c1a2f}</Project>
-      <Name>WorldStreetsRenderer</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
