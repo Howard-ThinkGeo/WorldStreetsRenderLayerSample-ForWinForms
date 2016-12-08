@@ -110,6 +110,12 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WorldStreetsRenderLayer\WorldStreetsRenderLayer\WorldStreetsRenderLayer-Nuget.csproj">
+      <Project>{76c22df9-abb6-4af5-b1c1-3a19dfdd929b}</Project>
+      <Name>WorldStreetsRenderLayer-Nuget</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
