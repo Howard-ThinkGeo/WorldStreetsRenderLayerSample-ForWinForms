@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Configuration;
 using ThinkGeo.MapSuite;
-using ThinkGeo.MapSuite.Layers;
-using ThinkGeo.MapSuite.Shapes;
+using ThinkGeo.MapSuite.Drawing;
 using ThinkGeo.MapSuite.WinForms;
 
 namespace WorldStreetsRenderLayerSample
 {
     public partial class Form : System.Windows.Forms.Form
     {
-        private string sourceDataDirectory = ConfigurationManager.AppSettings["SourceDataDirectory"];
+        private readonly string connection = ConfigurationManager.AppSettings["ConnectionString"];
 
         public Form()
         {
@@ -19,12 +18,15 @@ namespace WorldStreetsRenderLayerSample
         private void FormLoad(object sender, EventArgs e)
         {
             winformsMap.MapUnit = GeographyUnit.Meter;
-            winformsMap.CurrentExtent = new RectangleShape(-10801705.3653354, 3895575.29512613, -10750034.0634737, 3838706.28834338);
+            winformsMap.BackgroundOverlay.BackgroundBrush = new GeoSolidBrush(GeoColor.SimpleColors.Red);
 
             LayerOverlay layerOverlay = new LayerOverlay();
-            WorldStreetsRenderLayer worldStreetsRenderLayer = new WorldStreetsRenderLayer(sourceDataDirectory);
-            layerOverlay.Layers.Add(worldStreetsRenderLayer);
+            OsmWorldMapKitLayer osmWorldMapKitLayer = new OsmWorldMapKitLayer(connection);
+            layerOverlay.Layers.Add(osmWorldMapKitLayer);
             winformsMap.Overlays.Add(layerOverlay);
+
+            osmWorldMapKitLayer.Open();
+            winformsMap.CurrentExtent = osmWorldMapKitLayer.Layers["osm_road_linestring"].GetBoundingBox();
             winformsMap.Refresh();
         }
     }

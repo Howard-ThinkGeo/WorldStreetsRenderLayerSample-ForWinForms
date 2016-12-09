@@ -250,3 +250,4 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/WorldStreetsRenderLayerSample/SampleData/DFW-3857-20161015.sqlite
