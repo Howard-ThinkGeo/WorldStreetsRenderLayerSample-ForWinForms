@@ -21,7 +21,7 @@ namespace WorldStreetsRenderLayerSample
             winformsMap.BackgroundOverlay.BackgroundBrush = new GeoSolidBrush(GeoColor.SimpleColors.Red);
 
             LayerOverlay layerOverlay = new LayerOverlay();
-            OsmWorldMapKitLayer osmWorldMapKitLayer = new OsmWorldMapKitLayer(connection);
+            WorldStreetsRenderLayer osmWorldMapKitLayer = new WorldStreetsRenderLayer(connection);
             layerOverlay.Layers.Add(osmWorldMapKitLayer);
             winformsMap.Overlays.Add(layerOverlay);
 
